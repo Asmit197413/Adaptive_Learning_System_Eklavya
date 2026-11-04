@@ -1,0 +1,40 @@
+/* LearnWe UI upgrade: loads after style.css. Matches the Figma frames, adds motion. */
+:root{--grad:linear-gradient(135deg,#1414c8,#4a3cf0);--shadow:0 6px 18px #14185a1a}
+body{font-family:Inter,"Segoe UI","Nirmala UI","Noto Sans",system-ui,sans-serif;background:radial-gradient(circle at 15% 10%,#e4e0ff,#dfe6f5 50%,#d3ecff)}
+#app{background:linear-gradient(180deg,#e6e8ff 0,#f4f7fd 300px)}
+.screen>*{animation:rise .5s cubic-bezier(.2,.8,.2,1) both}
+.screen>:nth-child(2){animation-delay:.06s}.screen>:nth-child(3){animation-delay:.12s}.screen>:nth-child(4){animation-delay:.18s}
+.screen>:nth-child(5){animation-delay:.24s}.screen>:nth-child(6){animation-delay:.3s}.screen>:nth-child(n+7){animation-delay:.36s}
+@keyframes rise{from{opacity:0;transform:translateY(16px)}}
+.btn{background:var(--grad);border:0;border-radius:14px;box-shadow:0 8px 20px #1414c833;position:relative;overflow:hidden}
+.btn::after{content:"";position:absolute;inset:0;background:linear-gradient(110deg,transparent 30%,#fff5 50%,transparent 70%);transform:translateX(-120%);animation:shine 3.5s infinite}
+@keyframes shine{60%,100%{transform:translateX(120%)}}
+.btn.alt{background:#fff;border:2px solid var(--blue);box-shadow:none}.btn.alt::after{display:none}
+.btn.alt[onclick="logout()"]{background:#ffe3e3}
+input,select{border:1.5px solid var(--navy);border-radius:14px;box-shadow:0 3px 0 #14185a22}
+.tabs button{border-radius:999px;border:1.5px solid var(--navy);background:#eaf2ff}
+.tabs .on{background:var(--blue);border-color:var(--blue)}
+.card{border-radius:16px;box-shadow:var(--shadow);transition:transform .2s,box-shadow .2s}
+.card:hover{transform:translateY(-2px);box-shadow:0 10px 24px #14185a22}
+.pill{border-radius:16px;border:1.5px solid #14185a22;box-shadow:var(--shadow)}
+.banner{background:linear-gradient(100deg,#ffa62b,#ffd36e);position:relative;overflow:hidden;box-shadow:var(--shadow)}
+.banner::after{content:"✦";position:absolute;right:18px;top:8px;font-size:34px;color:#fff;animation:twinkle 2.4s ease-in-out infinite}
+@keyframes twinkle{50%{transform:scale(1.4) rotate(20deg);opacity:.5}}
+.hdr>img{animation:wiggle 3s ease-in-out infinite;transform-origin:50% 10%}
+@keyframes wiggle{0%,80%,100%{transform:none}86%{transform:rotate(14deg)}92%{transform:rotate(-12deg)}}
+.quick div{border:0;border-radius:18px;box-shadow:var(--shadow)}
+.quick div:nth-child(1){background:#d8f7e3}.quick div:nth-child(2){background:#e3e6ff}.quick div:nth-child(3){background:#efe2ff}
+.quick img{width:46px;height:46px;object-fit:cover}
+.opt{background:#ddd;border:1.5px solid var(--navy);border-radius:14px;box-shadow:0 3px 0 #14185a30}
+.ring{box-shadow:0 0 0 6px #1fa64a1a;animation:glow 3s ease-in-out infinite}
+@keyframes glow{50%{box-shadow:0 0 0 12px #1fa64a10}}
+.stat{border-radius:14px;background:#eaf2ff;box-shadow:var(--shadow)}
+.nav{border-radius:20px 20px 0 0;box-shadow:0 -6px 20px #14185a14}
+.nav span svg{width:24px;height:24px;display:block;margin:0 auto;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.nav button.on svg{animation:pop .4s}
+.langs{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}
+.langs button{padding:12px;border-radius:14px;border:1.5px solid var(--line);background:#fff;font-size:16px;font-weight:600;cursor:pointer;transition:.2s}
+.langs button:hover{transform:translateY(-2px)}.langs .on{background:var(--grad);color:#fff;border-color:transparent}
+.quick div.badge{background:#fff7d6;cursor:default;font-size:11px;padding:10px 2px;filter:grayscale(1);opacity:.45}
+.quick div.badge.got{filter:none;opacity:1;animation:pop .5s}.badge span{font-size:26px;display:block}
+.card input{border-radius:10px}[dir=rtl] .top button,[dir=rtl] .pill{transform:scaleX(-1)}[dir=rtl] .pill span{transform:scaleX(-1)}
